@@ -1,0 +1,1073 @@
+[
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "knapSack",
+        "kind": 2,
+        "importPath": "01knapsackbt",
+        "description": "01knapsackbt",
+        "peekOfCode": "def knapSack(W, wt, val, n):\n\tif n == 0 or W == 0 :\n\t\treturn 0\n\tif (wt[n-1] > W):\n\t\treturn knapSack(W, wt, val, n-1)\n\telse:\n\t\treturn max(val[n-1] + knapSack(W-wt[n-1], wt, val, n-1),\n\t\t\t\tknapSack(W, wt, val, n-1))\nval = [60, 100, 120]\nwt = [10, 20, 30]",
+        "detail": "01knapsackbt",
+        "documentation": {}
+    },
+    {
+        "label": "val",
+        "kind": 5,
+        "importPath": "01knapsackbt",
+        "description": "01knapsackbt",
+        "peekOfCode": "val = [60, 100, 120]\nwt = [10, 20, 30]\nW = 50\nn = len(val) \nprint(knapSack(W, wt, val, n))",
+        "detail": "01knapsackbt",
+        "documentation": {}
+    },
+    {
+        "label": "wt",
+        "kind": 5,
+        "importPath": "01knapsackbt",
+        "description": "01knapsackbt",
+        "peekOfCode": "wt = [10, 20, 30]\nW = 50\nn = len(val) \nprint(knapSack(W, wt, val, n))",
+        "detail": "01knapsackbt",
+        "documentation": {}
+    },
+    {
+        "label": "W",
+        "kind": 5,
+        "importPath": "01knapsackbt",
+        "description": "01knapsackbt",
+        "peekOfCode": "W = 50\nn = len(val) \nprint(knapSack(W, wt, val, n))",
+        "detail": "01knapsackbt",
+        "documentation": {}
+    },
+    {
+        "label": "n",
+        "kind": 5,
+        "importPath": "01knapsackbt",
+        "description": "01knapsackbt",
+        "peekOfCode": "n = len(val) \nprint(knapSack(W, wt, val, n))",
+        "detail": "01knapsackbt",
+        "documentation": {}
+    },
+    {
+        "label": "badCharHeuristic",
+        "kind": 2,
+        "importPath": "Boyermoore",
+        "description": "Boyermoore",
+        "peekOfCode": "def badCharHeuristic(string, size):\n    badChar = [-1]*NO_OF_CHARS\n    for i in range(size):\n        badChar[ord(string[i])] = i \n    return badChar \ndef search(txt, pat):   \n    m = len(pat)\n    n = len(txt)\n    badChar = badCharHeuristic(pat, m)\n    s = 0",
+        "detail": "Boyermoore",
+        "documentation": {}
+    },
+    {
+        "label": "search",
+        "kind": 2,
+        "importPath": "Boyermoore",
+        "description": "Boyermoore",
+        "peekOfCode": "def search(txt, pat):   \n    m = len(pat)\n    n = len(txt)\n    badChar = badCharHeuristic(pat, m)\n    s = 0\n    while(s <= n-m):\n        j = m-1\n        while j>=0 and pat[j] == txt[s+j]:\n            j -= 1\n        if j<0:",
+        "detail": "Boyermoore",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "Boyermoore",
+        "description": "Boyermoore",
+        "peekOfCode": "def main():\n    txt = \"ABAAABCD\"\n    pat = \"ABC\"\n    search(txt, pat)\nif __name__ == '__main__':\n    main()",
+        "detail": "Boyermoore",
+        "documentation": {}
+    },
+    {
+        "label": "NO_OF_CHARS",
+        "kind": 5,
+        "importPath": "Boyermoore",
+        "description": "Boyermoore",
+        "peekOfCode": "NO_OF_CHARS = 256 \ndef badCharHeuristic(string, size):\n    badChar = [-1]*NO_OF_CHARS\n    for i in range(size):\n        badChar[ord(string[i])] = i \n    return badChar \ndef search(txt, pat):   \n    m = len(pat)\n    n = len(txt)\n    badChar = badCharHeuristic(pat, m)",
+        "detail": "Boyermoore",
+        "documentation": {}
+    },
+    {
+        "label": "dfsUtil",
+        "kind": 2,
+        "importPath": "DFT",
+        "description": "DFT",
+        "peekOfCode": "def dfsUtil(u, node,visited,\n\t\t\troad_used, parent, it):\n\tc = 0\n\tfor i in range(node):\n\t\tif (visited[i]):\n\t\t\tc += 1\n\tif (c == node):\n\t\treturn\n\tvisited[u] = True\n\troad_used.append([parent, u])",
+        "detail": "DFT",
+        "documentation": {}
+    },
+    {
+        "label": "dft",
+        "kind": 2,
+        "importPath": "DFT",
+        "description": "DFT",
+        "peekOfCode": "def dft(node):\n\tvisited = [False for i in range(node)]\n\troad_used = []\n\tfor i in range(node):\n\t\tvisited[i] = False\n\tdfsUtil(0, node, visited,\n\t\t\troad_used, -1, 0)\ndef insertEdge(u, v):\n\tadj[u].append(v)\n\tadj[v].append(u)",
+        "detail": "DFT",
+        "documentation": {}
+    },
+    {
+        "label": "insertEdge",
+        "kind": 2,
+        "importPath": "DFT",
+        "description": "DFT",
+        "peekOfCode": "def insertEdge(u, v):\n\tadj[u].append(v)\n\tadj[v].append(u)\nif __name__ == '__main__':\n\tnode = 11\n\tedge = 13\n\tinsertEdge(0, 1)\n\tinsertEdge(0, 2)\n\tinsertEdge(1, 5)\n\tinsertEdge(1, 6)",
+        "detail": "DFT",
+        "documentation": {}
+    },
+    {
+        "label": "N",
+        "kind": 5,
+        "importPath": "DFT",
+        "description": "DFT",
+        "peekOfCode": "N = 1000\nadj = [[] for i in range(N)]\ndef dfsUtil(u, node,visited,\n\t\t\troad_used, parent, it):\n\tc = 0\n\tfor i in range(node):\n\t\tif (visited[i]):\n\t\t\tc += 1\n\tif (c == node):\n\t\treturn",
+        "detail": "DFT",
+        "documentation": {}
+    },
+    {
+        "label": "adj",
+        "kind": 5,
+        "importPath": "DFT",
+        "description": "DFT",
+        "peekOfCode": "adj = [[] for i in range(N)]\ndef dfsUtil(u, node,visited,\n\t\t\troad_used, parent, it):\n\tc = 0\n\tfor i in range(node):\n\t\tif (visited[i]):\n\t\t\tc += 1\n\tif (c == node):\n\t\treturn\n\tvisited[u] = True",
+        "detail": "DFT",
+        "documentation": {}
+    },
+    {
+        "label": "\tc",
+        "kind": 5,
+        "importPath": "DFT",
+        "description": "DFT",
+        "peekOfCode": "\tc = 0\n\tfor i in range(node):\n\t\tif (visited[i]):\n\t\t\tc += 1\n\tif (c == node):\n\t\treturn\n\tvisited[u] = True\n\troad_used.append([parent, u])\n\tprint(u, end = \" \")\n\tfor x in adj[u]:",
+        "detail": "DFT",
+        "documentation": {}
+    },
+    {
+        "label": "\tvisited[u]",
+        "kind": 5,
+        "importPath": "DFT",
+        "description": "DFT",
+        "peekOfCode": "\tvisited[u] = True\n\troad_used.append([parent, u])\n\tprint(u, end = \" \")\n\tfor x in adj[u]:\n\t\tif (not visited[x]):\n\t\t\tdfsUtil(x, node, visited,\n\t\t\t\t\troad_used, u, it + 1)\n\tfor y in road_used:\n\t\tif (y[1] == u):\n\t\t\tdfsUtil(y[0], node, visited,",
+        "detail": "DFT",
+        "documentation": {}
+    },
+    {
+        "label": "\tvisited",
+        "kind": 5,
+        "importPath": "DFT",
+        "description": "DFT",
+        "peekOfCode": "\tvisited = [False for i in range(node)]\n\troad_used = []\n\tfor i in range(node):\n\t\tvisited[i] = False\n\tdfsUtil(0, node, visited,\n\t\t\troad_used, -1, 0)\ndef insertEdge(u, v):\n\tadj[u].append(v)\n\tadj[v].append(u)\nif __name__ == '__main__':",
+        "detail": "DFT",
+        "documentation": {}
+    },
+    {
+        "label": "\troad_used",
+        "kind": 5,
+        "importPath": "DFT",
+        "description": "DFT",
+        "peekOfCode": "\troad_used = []\n\tfor i in range(node):\n\t\tvisited[i] = False\n\tdfsUtil(0, node, visited,\n\t\t\troad_used, -1, 0)\ndef insertEdge(u, v):\n\tadj[u].append(v)\n\tadj[v].append(u)\nif __name__ == '__main__':\n\tnode = 11",
+        "detail": "DFT",
+        "documentation": {}
+    },
+    {
+        "label": "\t\tvisited[i]",
+        "kind": 5,
+        "importPath": "DFT",
+        "description": "DFT",
+        "peekOfCode": "\t\tvisited[i] = False\n\tdfsUtil(0, node, visited,\n\t\t\troad_used, -1, 0)\ndef insertEdge(u, v):\n\tadj[u].append(v)\n\tadj[v].append(u)\nif __name__ == '__main__':\n\tnode = 11\n\tedge = 13\n\tinsertEdge(0, 1)",
+        "detail": "DFT",
+        "documentation": {}
+    },
+    {
+        "label": "\tnode",
+        "kind": 5,
+        "importPath": "DFT",
+        "description": "DFT",
+        "peekOfCode": "\tnode = 11\n\tedge = 13\n\tinsertEdge(0, 1)\n\tinsertEdge(0, 2)\n\tinsertEdge(1, 5)\n\tinsertEdge(1, 6)\n\tinsertEdge(2, 4)\n\tinsertEdge(2, 9)\n\tinsertEdge(6, 7)\n\tinsertEdge(6, 8)",
+        "detail": "DFT",
+        "documentation": {}
+    },
+    {
+        "label": "\tedge",
+        "kind": 5,
+        "importPath": "DFT",
+        "description": "DFT",
+        "peekOfCode": "\tedge = 13\n\tinsertEdge(0, 1)\n\tinsertEdge(0, 2)\n\tinsertEdge(1, 5)\n\tinsertEdge(1, 6)\n\tinsertEdge(2, 4)\n\tinsertEdge(2, 9)\n\tinsertEdge(6, 7)\n\tinsertEdge(6, 8)\n\tinsertEdge(7, 8)",
+        "detail": "DFT",
+        "documentation": {}
+    },
+    {
+        "label": "ItemValue",
+        "kind": 6,
+        "importPath": "fracknapsnack",
+        "description": "fracknapsnack",
+        "peekOfCode": "class ItemValue:\n\tdef __init__(self, wt, val, ind):\n\t\tself.wt = wt\n\t\tself.val = val\n\t\tself.ind = ind\n\t\tself.cost = val / wt\n\tdef __lt__(self, other):\n\t\treturn self.cost < other.cost\nclass FractionalKnapSack:\n\tdef getMaxValue(wt, val, capacity):",
+        "detail": "fracknapsnack",
+        "documentation": {}
+    },
+    {
+        "label": "FractionalKnapSack",
+        "kind": 6,
+        "importPath": "fracknapsnack",
+        "description": "fracknapsnack",
+        "peekOfCode": "class FractionalKnapSack:\n\tdef getMaxValue(wt, val, capacity):\n\t\tarr = [] \n\t\tfor i in range(len(wt)):\n\t\t\tarr.append(ItemValue(wt[i], val[i], i))\n\t\tarr.sort(reverse=True)\n\t\ttotalValue = 0\n\t\tfor i in arr:\n\t\t\tcurWt = int(i.wt)\n\t\t\tcurVal = int(i.val)",
+        "detail": "fracknapsnack",
+        "documentation": {}
+    },
+    {
+        "label": "\t\tself.wt",
+        "kind": 5,
+        "importPath": "fracknapsnack",
+        "description": "fracknapsnack",
+        "peekOfCode": "\t\tself.wt = wt\n\t\tself.val = val\n\t\tself.ind = ind\n\t\tself.cost = val / wt\n\tdef __lt__(self, other):\n\t\treturn self.cost < other.cost\nclass FractionalKnapSack:\n\tdef getMaxValue(wt, val, capacity):\n\t\tarr = [] \n\t\tfor i in range(len(wt)):",
+        "detail": "fracknapsnack",
+        "documentation": {}
+    },
+    {
+        "label": "\t\tself.val",
+        "kind": 5,
+        "importPath": "fracknapsnack",
+        "description": "fracknapsnack",
+        "peekOfCode": "\t\tself.val = val\n\t\tself.ind = ind\n\t\tself.cost = val / wt\n\tdef __lt__(self, other):\n\t\treturn self.cost < other.cost\nclass FractionalKnapSack:\n\tdef getMaxValue(wt, val, capacity):\n\t\tarr = [] \n\t\tfor i in range(len(wt)):\n\t\t\tarr.append(ItemValue(wt[i], val[i], i))",
+        "detail": "fracknapsnack",
+        "documentation": {}
+    },
+    {
+        "label": "\t\tself.ind",
+        "kind": 5,
+        "importPath": "fracknapsnack",
+        "description": "fracknapsnack",
+        "peekOfCode": "\t\tself.ind = ind\n\t\tself.cost = val / wt\n\tdef __lt__(self, other):\n\t\treturn self.cost < other.cost\nclass FractionalKnapSack:\n\tdef getMaxValue(wt, val, capacity):\n\t\tarr = [] \n\t\tfor i in range(len(wt)):\n\t\t\tarr.append(ItemValue(wt[i], val[i], i))\n\t\tarr.sort(reverse=True)",
+        "detail": "fracknapsnack",
+        "documentation": {}
+    },
+    {
+        "label": "\t\tself.cost",
+        "kind": 5,
+        "importPath": "fracknapsnack",
+        "description": "fracknapsnack",
+        "peekOfCode": "\t\tself.cost = val / wt\n\tdef __lt__(self, other):\n\t\treturn self.cost < other.cost\nclass FractionalKnapSack:\n\tdef getMaxValue(wt, val, capacity):\n\t\tarr = [] \n\t\tfor i in range(len(wt)):\n\t\t\tarr.append(ItemValue(wt[i], val[i], i))\n\t\tarr.sort(reverse=True)\n\t\ttotalValue = 0",
+        "detail": "fracknapsnack",
+        "documentation": {}
+    },
+    {
+        "label": "\t\tarr",
+        "kind": 5,
+        "importPath": "fracknapsnack",
+        "description": "fracknapsnack",
+        "peekOfCode": "\t\tarr = [] \n\t\tfor i in range(len(wt)):\n\t\t\tarr.append(ItemValue(wt[i], val[i], i))\n\t\tarr.sort(reverse=True)\n\t\ttotalValue = 0\n\t\tfor i in arr:\n\t\t\tcurWt = int(i.wt)\n\t\t\tcurVal = int(i.val)\n\t\t\tif capacity - curWt >= 0:\n\t\t\t\tcapacity -= curWt",
+        "detail": "fracknapsnack",
+        "documentation": {}
+    },
+    {
+        "label": "\t\ttotalValue",
+        "kind": 5,
+        "importPath": "fracknapsnack",
+        "description": "fracknapsnack",
+        "peekOfCode": "\t\ttotalValue = 0\n\t\tfor i in arr:\n\t\t\tcurWt = int(i.wt)\n\t\t\tcurVal = int(i.val)\n\t\t\tif capacity - curWt >= 0:\n\t\t\t\tcapacity -= curWt\n\t\t\t\ttotalValue += curVal\n\t\t\telse:\n\t\t\t\tfraction = capacity / curWt\n\t\t\t\ttotalValue += curVal * fraction",
+        "detail": "fracknapsnack",
+        "documentation": {}
+    },
+    {
+        "label": "\t\t\tcurWt",
+        "kind": 5,
+        "importPath": "fracknapsnack",
+        "description": "fracknapsnack",
+        "peekOfCode": "\t\t\tcurWt = int(i.wt)\n\t\t\tcurVal = int(i.val)\n\t\t\tif capacity - curWt >= 0:\n\t\t\t\tcapacity -= curWt\n\t\t\t\ttotalValue += curVal\n\t\t\telse:\n\t\t\t\tfraction = capacity / curWt\n\t\t\t\ttotalValue += curVal * fraction\n\t\t\t\tcapacity = int(capacity - (curWt * fraction))\n\t\t\t\tbreak",
+        "detail": "fracknapsnack",
+        "documentation": {}
+    },
+    {
+        "label": "\t\t\tcurVal",
+        "kind": 5,
+        "importPath": "fracknapsnack",
+        "description": "fracknapsnack",
+        "peekOfCode": "\t\t\tcurVal = int(i.val)\n\t\t\tif capacity - curWt >= 0:\n\t\t\t\tcapacity -= curWt\n\t\t\t\ttotalValue += curVal\n\t\t\telse:\n\t\t\t\tfraction = capacity / curWt\n\t\t\t\ttotalValue += curVal * fraction\n\t\t\t\tcapacity = int(capacity - (curWt * fraction))\n\t\t\t\tbreak\n\t\treturn totalValue",
+        "detail": "fracknapsnack",
+        "documentation": {}
+    },
+    {
+        "label": "\t\t\t\tfraction",
+        "kind": 5,
+        "importPath": "fracknapsnack",
+        "description": "fracknapsnack",
+        "peekOfCode": "\t\t\t\tfraction = capacity / curWt\n\t\t\t\ttotalValue += curVal * fraction\n\t\t\t\tcapacity = int(capacity - (curWt * fraction))\n\t\t\t\tbreak\n\t\treturn totalValue\nif __name__ == \"__main__\":\n\twt = [10, 40, 20, 30]\n\tval = [60, 40, 100, 120]\n\tcapacity = 50\n\tmaxValue = FractionalKnapSack.getMaxValue(wt, val, capacity)",
+        "detail": "fracknapsnack",
+        "documentation": {}
+    },
+    {
+        "label": "\t\t\t\tcapacity",
+        "kind": 5,
+        "importPath": "fracknapsnack",
+        "description": "fracknapsnack",
+        "peekOfCode": "\t\t\t\tcapacity = int(capacity - (curWt * fraction))\n\t\t\t\tbreak\n\t\treturn totalValue\nif __name__ == \"__main__\":\n\twt = [10, 40, 20, 30]\n\tval = [60, 40, 100, 120]\n\tcapacity = 50\n\tmaxValue = FractionalKnapSack.getMaxValue(wt, val, capacity)\n\tprint(\"Maximum value in Knapsack =\", maxValue)",
+        "detail": "fracknapsnack",
+        "documentation": {}
+    },
+    {
+        "label": "\twt",
+        "kind": 5,
+        "importPath": "fracknapsnack",
+        "description": "fracknapsnack",
+        "peekOfCode": "\twt = [10, 40, 20, 30]\n\tval = [60, 40, 100, 120]\n\tcapacity = 50\n\tmaxValue = FractionalKnapSack.getMaxValue(wt, val, capacity)\n\tprint(\"Maximum value in Knapsack =\", maxValue)",
+        "detail": "fracknapsnack",
+        "documentation": {}
+    },
+    {
+        "label": "\tval",
+        "kind": 5,
+        "importPath": "fracknapsnack",
+        "description": "fracknapsnack",
+        "peekOfCode": "\tval = [60, 40, 100, 120]\n\tcapacity = 50\n\tmaxValue = FractionalKnapSack.getMaxValue(wt, val, capacity)\n\tprint(\"Maximum value in Knapsack =\", maxValue)",
+        "detail": "fracknapsnack",
+        "documentation": {}
+    },
+    {
+        "label": "\tcapacity",
+        "kind": 5,
+        "importPath": "fracknapsnack",
+        "description": "fracknapsnack",
+        "peekOfCode": "\tcapacity = 50\n\tmaxValue = FractionalKnapSack.getMaxValue(wt, val, capacity)\n\tprint(\"Maximum value in Knapsack =\", maxValue)",
+        "detail": "fracknapsnack",
+        "documentation": {}
+    },
+    {
+        "label": "\tmaxValue",
+        "kind": 5,
+        "importPath": "fracknapsnack",
+        "description": "fracknapsnack",
+        "peekOfCode": "\tmaxValue = FractionalKnapSack.getMaxValue(wt, val, capacity)\n\tprint(\"Maximum value in Knapsack =\", maxValue)",
+        "detail": "fracknapsnack",
+        "documentation": {}
+    },
+    {
+        "label": "isSafe",
+        "kind": 2,
+        "importPath": "graphcoloring",
+        "description": "graphcoloring",
+        "peekOfCode": "def isSafe(graph, color):\n\tfor i in range(4):\n\t\tfor j in range(i + 1, 4):\n\t\t\tif (graph[i][j] and color[j] == color[i]):\n\t\t\t\treturn False\n\treturn True\ndef graphColoring(graph, m, i, color):\t\n\tif (i == 4):\t\t\n\t\tif (isSafe(graph, color)):\t\t\t\n\t\t\tprintSolution(color)",
+        "detail": "graphcoloring",
+        "documentation": {}
+    },
+    {
+        "label": "graphColoring",
+        "kind": 2,
+        "importPath": "graphcoloring",
+        "description": "graphcoloring",
+        "peekOfCode": "def graphColoring(graph, m, i, color):\t\n\tif (i == 4):\t\t\n\t\tif (isSafe(graph, color)):\t\t\t\n\t\t\tprintSolution(color)\n\t\t\treturn True\n\t\treturn False\t\n\tfor j in range(1, m + 1):\n\t\tcolor[i] = j\t\t\n\t\tif (graphColoring(graph, m, i + 1, color)):\n\t\t\treturn True",
+        "detail": "graphcoloring",
+        "documentation": {}
+    },
+    {
+        "label": "printSolution",
+        "kind": 2,
+        "importPath": "graphcoloring",
+        "description": "graphcoloring",
+        "peekOfCode": "def printSolution(color):\n\tprint(\"Solution Exists:\" \" Following are the assigned colors \")\n\tfor i in range(4):\n\t\tprint(color[i],end=\" \")\nif __name__ == '__main__':\t\n\tgraph = [\n\t\t[ 0, 1, 1, 1 ],\n\t\t[ 1, 0, 1, 0 ],\n\t\t[ 1, 1, 0, 1 ],\n\t\t[ 1, 0, 1, 0 ],",
+        "detail": "graphcoloring",
+        "documentation": {}
+    },
+    {
+        "label": "\t\tcolor[i]",
+        "kind": 5,
+        "importPath": "graphcoloring",
+        "description": "graphcoloring",
+        "peekOfCode": "\t\tcolor[i] = j\t\t\n\t\tif (graphColoring(graph, m, i + 1, color)):\n\t\t\treturn True\n\t\tcolor[i] = 0\n\treturn False\ndef printSolution(color):\n\tprint(\"Solution Exists:\" \" Following are the assigned colors \")\n\tfor i in range(4):\n\t\tprint(color[i],end=\" \")\nif __name__ == '__main__':\t",
+        "detail": "graphcoloring",
+        "documentation": {}
+    },
+    {
+        "label": "\t\tcolor[i]",
+        "kind": 5,
+        "importPath": "graphcoloring",
+        "description": "graphcoloring",
+        "peekOfCode": "\t\tcolor[i] = 0\n\treturn False\ndef printSolution(color):\n\tprint(\"Solution Exists:\" \" Following are the assigned colors \")\n\tfor i in range(4):\n\t\tprint(color[i],end=\" \")\nif __name__ == '__main__':\t\n\tgraph = [\n\t\t[ 0, 1, 1, 1 ],\n\t\t[ 1, 0, 1, 0 ],",
+        "detail": "graphcoloring",
+        "documentation": {}
+    },
+    {
+        "label": "\tgraph",
+        "kind": 5,
+        "importPath": "graphcoloring",
+        "description": "graphcoloring",
+        "peekOfCode": "\tgraph = [\n\t\t[ 0, 1, 1, 1 ],\n\t\t[ 1, 0, 1, 0 ],\n\t\t[ 1, 1, 0, 1 ],\n\t\t[ 1, 0, 1, 0 ],\n\t]\n\tm = 3 \t\n\tcolor = [0 for i in range(4)]\n\tif (not graphColoring(graph, m, 0, color)):\n\t\tprint (\"Solution does not exist\")",
+        "detail": "graphcoloring",
+        "documentation": {}
+    },
+    {
+        "label": "\tm",
+        "kind": 5,
+        "importPath": "graphcoloring",
+        "description": "graphcoloring",
+        "peekOfCode": "\tm = 3 \t\n\tcolor = [0 for i in range(4)]\n\tif (not graphColoring(graph, m, 0, color)):\n\t\tprint (\"Solution does not exist\")",
+        "detail": "graphcoloring",
+        "documentation": {}
+    },
+    {
+        "label": "\tcolor",
+        "kind": 5,
+        "importPath": "graphcoloring",
+        "description": "graphcoloring",
+        "peekOfCode": "\tcolor = [0 for i in range(4)]\n\tif (not graphColoring(graph, m, 0, color)):\n\t\tprint (\"Solution does not exist\")",
+        "detail": "graphcoloring",
+        "documentation": {}
+    },
+    {
+        "label": "jobScheduling",
+        "kind": 2,
+        "importPath": "jobsequence",
+        "description": "jobsequence",
+        "peekOfCode": "def jobScheduling(arr, t):\n\tn = len(arr)\n\tfor i in range(n):\n\t\tfor j in range(n - 1 - i):\n\t\t\tif arr[j][2] < arr[j + 1][2]:\n\t\t\t\tarr[j], arr[j + 1] = arr[j + 1], arr[j]\n\tresult = [False] * t\t\n\tjob = ['-1'] * t\n\tfor i in range(len(arr)):\t\t\n\t\tfor j in range(min(t - 1, arr[i][1] - 1), -1, -1):\t\t\t",
+        "detail": "jobsequence",
+        "documentation": {}
+    },
+    {
+        "label": "\tn",
+        "kind": 5,
+        "importPath": "jobsequence",
+        "description": "jobsequence",
+        "peekOfCode": "\tn = len(arr)\n\tfor i in range(n):\n\t\tfor j in range(n - 1 - i):\n\t\t\tif arr[j][2] < arr[j + 1][2]:\n\t\t\t\tarr[j], arr[j + 1] = arr[j + 1], arr[j]\n\tresult = [False] * t\t\n\tjob = ['-1'] * t\n\tfor i in range(len(arr)):\t\t\n\t\tfor j in range(min(t - 1, arr[i][1] - 1), -1, -1):\t\t\t\n\t\t\tif result[j] is False:",
+        "detail": "jobsequence",
+        "documentation": {}
+    },
+    {
+        "label": "\tresult",
+        "kind": 5,
+        "importPath": "jobsequence",
+        "description": "jobsequence",
+        "peekOfCode": "\tresult = [False] * t\t\n\tjob = ['-1'] * t\n\tfor i in range(len(arr)):\t\t\n\t\tfor j in range(min(t - 1, arr[i][1] - 1), -1, -1):\t\t\t\n\t\t\tif result[j] is False:\n\t\t\t\tresult[j] = True\n\t\t\t\tjob[j] = arr[i][0]\n\t\t\t\tbreak\n\tprint(job)\narr = [['a', 2, 100], ",
+        "detail": "jobsequence",
+        "documentation": {}
+    },
+    {
+        "label": "\tjob",
+        "kind": 5,
+        "importPath": "jobsequence",
+        "description": "jobsequence",
+        "peekOfCode": "\tjob = ['-1'] * t\n\tfor i in range(len(arr)):\t\t\n\t\tfor j in range(min(t - 1, arr[i][1] - 1), -1, -1):\t\t\t\n\t\t\tif result[j] is False:\n\t\t\t\tresult[j] = True\n\t\t\t\tjob[j] = arr[i][0]\n\t\t\t\tbreak\n\tprint(job)\narr = [['a', 2, 100], \n\t['b', 1, 19],",
+        "detail": "jobsequence",
+        "documentation": {}
+    },
+    {
+        "label": "\t\t\t\tresult[j]",
+        "kind": 5,
+        "importPath": "jobsequence",
+        "description": "jobsequence",
+        "peekOfCode": "\t\t\t\tresult[j] = True\n\t\t\t\tjob[j] = arr[i][0]\n\t\t\t\tbreak\n\tprint(job)\narr = [['a', 2, 100], \n\t['b', 1, 19],\n\t['c', 2, 27],\n\t['d', 1, 25],\n\t['e', 3, 15]]\nprint(\"Following is maximum profit sequence of jobs\")",
+        "detail": "jobsequence",
+        "documentation": {}
+    },
+    {
+        "label": "\t\t\t\tjob[j]",
+        "kind": 5,
+        "importPath": "jobsequence",
+        "description": "jobsequence",
+        "peekOfCode": "\t\t\t\tjob[j] = arr[i][0]\n\t\t\t\tbreak\n\tprint(job)\narr = [['a', 2, 100], \n\t['b', 1, 19],\n\t['c', 2, 27],\n\t['d', 1, 25],\n\t['e', 3, 15]]\nprint(\"Following is maximum profit sequence of jobs\")\njobScheduling(arr,5)",
+        "detail": "jobsequence",
+        "documentation": {}
+    },
+    {
+        "label": "arr",
+        "kind": 5,
+        "importPath": "jobsequence",
+        "description": "jobsequence",
+        "peekOfCode": "arr = [['a', 2, 100], \n\t['b', 1, 19],\n\t['c', 2, 27],\n\t['d', 1, 25],\n\t['e', 3, 15]]\nprint(\"Following is maximum profit sequence of jobs\")\njobScheduling(arr,5)",
+        "detail": "jobsequence",
+        "documentation": {}
+    },
+    {
+        "label": "KMPSearch",
+        "kind": 2,
+        "importPath": "kmp",
+        "description": "kmp",
+        "peekOfCode": "def KMPSearch(pat, txt):\n    M = len(pat)\n    N = len(txt)\n    pi = [0]*M\n    j = 0\n    computeLPSArray(pat, M, pi)\n    i = 0\n    while i < N:\n        if pat[j] == txt[i]:\n            i += 1",
+        "detail": "kmp",
+        "documentation": {}
+    },
+    {
+        "label": "computeLPSArray",
+        "kind": 2,
+        "importPath": "kmp",
+        "description": "kmp",
+        "peekOfCode": "def computeLPSArray(pat, M, lps):\n    len = 0\n    lps[0]\n    i = 1\n    while i < M:\n        if pat[i] == pat[len]:\n            len += 1\n            lps[i] = len\n            i += 1\n        else:",
+        "detail": "kmp",
+        "documentation": {}
+    },
+    {
+        "label": "txt",
+        "kind": 5,
+        "importPath": "kmp",
+        "description": "kmp",
+        "peekOfCode": "txt = \"this is daa exam\"\npat = \"class\"\nKMPSearch(pat, txt)",
+        "detail": "kmp",
+        "documentation": {}
+    },
+    {
+        "label": "pat",
+        "kind": 5,
+        "importPath": "kmp",
+        "description": "kmp",
+        "peekOfCode": "pat = \"class\"\nKMPSearch(pat, txt)",
+        "detail": "kmp",
+        "documentation": {}
+    },
+    {
+        "label": "fractional_knapsack",
+        "kind": 2,
+        "importPath": "knapsack",
+        "description": "knapsack",
+        "peekOfCode": "def fractional_knapsack(value, weight, capacity):\n    # index = [0, 1, 2, ..., n - 1] for n items\n    index = list(range(len(value)))\n    # contains ratios of values to weight\n    ratio = [v/w for v, w in zip(value, weight)]\n    # index is sorted according to value-to-weight ratio in decreasing order\n    index.sort(key=lambda i: ratio[i], reverse=True)\n    max_value = 0\n    fractions = [0]*len(value)\n    for i in index:",
+        "detail": "knapsack",
+        "documentation": {}
+    },
+    {
+        "label": "n",
+        "kind": 5,
+        "importPath": "knapsack",
+        "description": "knapsack",
+        "peekOfCode": "n = int(input('Enter number of items: '))\nvalue = input('Enter the values of the {} item(s) in order: '\n              .format(n)).split()\nvalue = [int(v) for v in value]\nweight = input('Enter the positive weights of the {} item(s) in order: '\n               .format(n)).split()\nweight = [int(w) for w in weight]\ncapacity = int(input('Enter maximum weight: '))\nmax_value, fractions = fractional_knapsack(value, weight, capacity)\nprint('The maximum value of items that can be carried:', max_value)",
+        "detail": "knapsack",
+        "documentation": {}
+    },
+    {
+        "label": "value",
+        "kind": 5,
+        "importPath": "knapsack",
+        "description": "knapsack",
+        "peekOfCode": "value = input('Enter the values of the {} item(s) in order: '\n              .format(n)).split()\nvalue = [int(v) for v in value]\nweight = input('Enter the positive weights of the {} item(s) in order: '\n               .format(n)).split()\nweight = [int(w) for w in weight]\ncapacity = int(input('Enter maximum weight: '))\nmax_value, fractions = fractional_knapsack(value, weight, capacity)\nprint('The maximum value of items that can be carried:', max_value)\nprint('The fractions in which the items should be taken:', fractions)",
+        "detail": "knapsack",
+        "documentation": {}
+    },
+    {
+        "label": "value",
+        "kind": 5,
+        "importPath": "knapsack",
+        "description": "knapsack",
+        "peekOfCode": "value = [int(v) for v in value]\nweight = input('Enter the positive weights of the {} item(s) in order: '\n               .format(n)).split()\nweight = [int(w) for w in weight]\ncapacity = int(input('Enter maximum weight: '))\nmax_value, fractions = fractional_knapsack(value, weight, capacity)\nprint('The maximum value of items that can be carried:', max_value)\nprint('The fractions in which the items should be taken:', fractions)",
+        "detail": "knapsack",
+        "documentation": {}
+    },
+    {
+        "label": "weight",
+        "kind": 5,
+        "importPath": "knapsack",
+        "description": "knapsack",
+        "peekOfCode": "weight = input('Enter the positive weights of the {} item(s) in order: '\n               .format(n)).split()\nweight = [int(w) for w in weight]\ncapacity = int(input('Enter maximum weight: '))\nmax_value, fractions = fractional_knapsack(value, weight, capacity)\nprint('The maximum value of items that can be carried:', max_value)\nprint('The fractions in which the items should be taken:', fractions)",
+        "detail": "knapsack",
+        "documentation": {}
+    },
+    {
+        "label": "weight",
+        "kind": 5,
+        "importPath": "knapsack",
+        "description": "knapsack",
+        "peekOfCode": "weight = [int(w) for w in weight]\ncapacity = int(input('Enter maximum weight: '))\nmax_value, fractions = fractional_knapsack(value, weight, capacity)\nprint('The maximum value of items that can be carried:', max_value)\nprint('The fractions in which the items should be taken:', fractions)",
+        "detail": "knapsack",
+        "documentation": {}
+    },
+    {
+        "label": "capacity",
+        "kind": 5,
+        "importPath": "knapsack",
+        "description": "knapsack",
+        "peekOfCode": "capacity = int(input('Enter maximum weight: '))\nmax_value, fractions = fractional_knapsack(value, weight, capacity)\nprint('The maximum value of items that can be carried:', max_value)\nprint('The fractions in which the items should be taken:', fractions)",
+        "detail": "knapsack",
+        "documentation": {}
+    },
+    {
+        "label": "Graph",
+        "kind": 6,
+        "importPath": "Kruskal",
+        "description": "Kruskal",
+        "peekOfCode": "class Graph:\n    def __init__(self, vertices):\n        self.V = vertices\n        self.graph = []\n    def add_edge(self, u, v, w):\n        self.graph.append([u, v, w])\n    def find(self, parent, i):\n        if parent[i] == i:\n            return i\n        return self.find(parent, parent[i])",
+        "detail": "Kruskal",
+        "documentation": {}
+    },
+    {
+        "label": "g",
+        "kind": 5,
+        "importPath": "Kruskal",
+        "description": "Kruskal",
+        "peekOfCode": "g = Graph(6)\ng.add_edge(0, 1, 4)\ng.add_edge(0, 2, 4)\ng.add_edge(1, 2, 2)\ng.add_edge(1, 0, 4)\ng.add_edge(2, 0, 4)\ng.add_edge(2, 1, 2)\ng.add_edge(2, 3, 3)\ng.add_edge(2, 5, 2)\ng.add_edge(2, 4, 4)",
+        "detail": "Kruskal",
+        "documentation": {}
+    },
+    {
+        "label": "merge_sort",
+        "kind": 2,
+        "importPath": "mergesort",
+        "description": "mergesort",
+        "peekOfCode": "def merge_sort(alist, start, end):\n    if end - start > 1:\n        mid = (start + end)//2\n        merge_sort(alist, start, mid)\n        merge_sort(alist, mid, end)\n        merge_list(alist, start, mid, end)\ndef merge_list(alist, start, mid, end):\n    left = alist[start:mid]\n    right = alist[mid:end]\n    k = start",
+        "detail": "mergesort",
+        "documentation": {}
+    },
+    {
+        "label": "merge_list",
+        "kind": 2,
+        "importPath": "mergesort",
+        "description": "mergesort",
+        "peekOfCode": "def merge_list(alist, start, mid, end):\n    left = alist[start:mid]\n    right = alist[mid:end]\n    k = start\n    i = 0\n    j = 0\n    while (start + i < mid and mid + j < end):\n        if (left[i] <= right[j]):\n            alist[k] = left[i]\n            i = i + 1",
+        "detail": "mergesort",
+        "documentation": {}
+    },
+    {
+        "label": "alist",
+        "kind": 5,
+        "importPath": "mergesort",
+        "description": "mergesort",
+        "peekOfCode": "alist = input('Enter the  numbers: ').split()\nalist = [int(x) for x in alist]\nmerge_sort(alist, 0, len(alist))\nprint('Sorted list: ',alist)",
+        "detail": "mergesort",
+        "documentation": {}
+    },
+    {
+        "label": "alist",
+        "kind": 5,
+        "importPath": "mergesort",
+        "description": "mergesort",
+        "peekOfCode": "alist = [int(x) for x in alist]\nmerge_sort(alist, 0, len(alist))\nprint('Sorted list: ',alist)",
+        "detail": "mergesort",
+        "documentation": {}
+    },
+    {
+        "label": "printSolution",
+        "kind": 2,
+        "importPath": "nqueens4.4",
+        "description": "nqueens4.4",
+        "peekOfCode": "def printSolution(board):\n\tfor i in range(N):\n\t\tfor j in range(N):\n\t\t\tprint (board[i][j], end = \" \")\n\t\tprint()\ndef isSafe(board, row, col):\n\tfor i in range(col):\n\t\tif board[row][i] == 1:\n\t\t\treturn False\n\tfor i, j in zip(range(row, -1, -1),",
+        "detail": "nqueens4.4",
+        "documentation": {}
+    },
+    {
+        "label": "isSafe",
+        "kind": 2,
+        "importPath": "nqueens4.4",
+        "description": "nqueens4.4",
+        "peekOfCode": "def isSafe(board, row, col):\n\tfor i in range(col):\n\t\tif board[row][i] == 1:\n\t\t\treturn False\n\tfor i, j in zip(range(row, -1, -1),\n\t\t\t\t\trange(col, -1, -1)):\n\t\tif board[i][j] == 1:\n\t\t\treturn False\t\n\tfor i, j in zip(range(row, N, 1),\n\t\t\t\t\trange(col, -1, -1)):",
+        "detail": "nqueens4.4",
+        "documentation": {}
+    },
+    {
+        "label": "solveNQUtil",
+        "kind": 2,
+        "importPath": "nqueens4.4",
+        "description": "nqueens4.4",
+        "peekOfCode": "def solveNQUtil(board, col):\t\n\tif col >= N:\n\t\treturn True\n\tfor i in range(N):\n\t\tif isSafe(board, i, col):\n\t\t\tboard[i][col] = 1\n\t\t\tif solveNQUtil(board, col + 1) == True:\n\t\t\t\treturn True\n\t\t\tboard[i][col] = 0\n\treturn False",
+        "detail": "nqueens4.4",
+        "documentation": {}
+    },
+    {
+        "label": "solveNQ",
+        "kind": 2,
+        "importPath": "nqueens4.4",
+        "description": "nqueens4.4",
+        "peekOfCode": "def solveNQ():\n\tboard = [ [0, 0, 0, 0],\n\t\t\t[0, 0, 0, 0],\n\t\t\t[0, 0, 0, 0],\n\t\t\t[0, 0, 0, 0] ]\n\tif solveNQUtil(board, 0) == False:\n\t\tprint (\"Solution does not exist\")\n\t\treturn False\n\tprintSolution(board)\n\treturn True",
+        "detail": "nqueens4.4",
+        "documentation": {}
+    },
+    {
+        "label": "N",
+        "kind": 5,
+        "importPath": "nqueens4.4",
+        "description": "nqueens4.4",
+        "peekOfCode": "N = 4\ndef printSolution(board):\n\tfor i in range(N):\n\t\tfor j in range(N):\n\t\t\tprint (board[i][j], end = \" \")\n\t\tprint()\ndef isSafe(board, row, col):\n\tfor i in range(col):\n\t\tif board[row][i] == 1:\n\t\t\treturn False",
+        "detail": "nqueens4.4",
+        "documentation": {}
+    },
+    {
+        "label": "\t\t\tboard[i][col]",
+        "kind": 5,
+        "importPath": "nqueens4.4",
+        "description": "nqueens4.4",
+        "peekOfCode": "\t\t\tboard[i][col] = 1\n\t\t\tif solveNQUtil(board, col + 1) == True:\n\t\t\t\treturn True\n\t\t\tboard[i][col] = 0\n\treturn False\ndef solveNQ():\n\tboard = [ [0, 0, 0, 0],\n\t\t\t[0, 0, 0, 0],\n\t\t\t[0, 0, 0, 0],\n\t\t\t[0, 0, 0, 0] ]",
+        "detail": "nqueens4.4",
+        "documentation": {}
+    },
+    {
+        "label": "\t\t\tboard[i][col]",
+        "kind": 5,
+        "importPath": "nqueens4.4",
+        "description": "nqueens4.4",
+        "peekOfCode": "\t\t\tboard[i][col] = 0\n\treturn False\ndef solveNQ():\n\tboard = [ [0, 0, 0, 0],\n\t\t\t[0, 0, 0, 0],\n\t\t\t[0, 0, 0, 0],\n\t\t\t[0, 0, 0, 0] ]\n\tif solveNQUtil(board, 0) == False:\n\t\tprint (\"Solution does not exist\")\n\t\treturn False",
+        "detail": "nqueens4.4",
+        "documentation": {}
+    },
+    {
+        "label": "\tboard",
+        "kind": 5,
+        "importPath": "nqueens4.4",
+        "description": "nqueens4.4",
+        "peekOfCode": "\tboard = [ [0, 0, 0, 0],\n\t\t\t[0, 0, 0, 0],\n\t\t\t[0, 0, 0, 0],\n\t\t\t[0, 0, 0, 0] ]\n\tif solveNQUtil(board, 0) == False:\n\t\tprint (\"Solution does not exist\")\n\t\treturn False\n\tprintSolution(board)\n\treturn True\nsolveNQ()",
+        "detail": "nqueens4.4",
+        "documentation": {}
+    },
+    {
+        "label": "optCost",
+        "kind": 2,
+        "importPath": "obst",
+        "description": "obst",
+        "peekOfCode": "def optCost(freq, i, j):\n\tif j < i:\t\n\t\treturn 0\n\tif j == i:\t \n\t\treturn freq[i]\n\tfsum = Sum(freq, i, j)\n\tMin = 999999999999\n\tfor r in range(i, j + 1):\n\t\tcost = (optCost(freq, i, r - 1) +\n\t\t\t\toptCost(freq, r + 1, j))",
+        "detail": "obst",
+        "documentation": {}
+    },
+    {
+        "label": "optimalSearchTree",
+        "kind": 2,
+        "importPath": "obst",
+        "description": "obst",
+        "peekOfCode": "def optimalSearchTree(keys, freq, n):\n\treturn optCost(freq, 0, n - 1)\ndef Sum(freq, i, j):\n\ts = 0\n\tfor k in range(i, j + 1):\n\t\ts += freq[k]\n\treturn s\nif __name__ == '__main__':\n\tkeys = [10, 12, 20]\n\tfreq = [34, 8, 50]",
+        "detail": "obst",
+        "documentation": {}
+    },
+    {
+        "label": "Sum",
+        "kind": 2,
+        "importPath": "obst",
+        "description": "obst",
+        "peekOfCode": "def Sum(freq, i, j):\n\ts = 0\n\tfor k in range(i, j + 1):\n\t\ts += freq[k]\n\treturn s\nif __name__ == '__main__':\n\tkeys = [10, 12, 20]\n\tfreq = [34, 8, 50]\n\tn = len(keys)\n\tprint(\"Cost of Optimal BST is\",",
+        "detail": "obst",
+        "documentation": {}
+    },
+    {
+        "label": "\tfsum",
+        "kind": 5,
+        "importPath": "obst",
+        "description": "obst",
+        "peekOfCode": "\tfsum = Sum(freq, i, j)\n\tMin = 999999999999\n\tfor r in range(i, j + 1):\n\t\tcost = (optCost(freq, i, r - 1) +\n\t\t\t\toptCost(freq, r + 1, j))\n\t\tif cost < Min:\n\t\t\tMin = cost\n\treturn Min + fsum\ndef optimalSearchTree(keys, freq, n):\n\treturn optCost(freq, 0, n - 1)",
+        "detail": "obst",
+        "documentation": {}
+    },
+    {
+        "label": "\tMin",
+        "kind": 5,
+        "importPath": "obst",
+        "description": "obst",
+        "peekOfCode": "\tMin = 999999999999\n\tfor r in range(i, j + 1):\n\t\tcost = (optCost(freq, i, r - 1) +\n\t\t\t\toptCost(freq, r + 1, j))\n\t\tif cost < Min:\n\t\t\tMin = cost\n\treturn Min + fsum\ndef optimalSearchTree(keys, freq, n):\n\treturn optCost(freq, 0, n - 1)\ndef Sum(freq, i, j):",
+        "detail": "obst",
+        "documentation": {}
+    },
+    {
+        "label": "\t\tcost",
+        "kind": 5,
+        "importPath": "obst",
+        "description": "obst",
+        "peekOfCode": "\t\tcost = (optCost(freq, i, r - 1) +\n\t\t\t\toptCost(freq, r + 1, j))\n\t\tif cost < Min:\n\t\t\tMin = cost\n\treturn Min + fsum\ndef optimalSearchTree(keys, freq, n):\n\treturn optCost(freq, 0, n - 1)\ndef Sum(freq, i, j):\n\ts = 0\n\tfor k in range(i, j + 1):",
+        "detail": "obst",
+        "documentation": {}
+    },
+    {
+        "label": "\t\t\tMin",
+        "kind": 5,
+        "importPath": "obst",
+        "description": "obst",
+        "peekOfCode": "\t\t\tMin = cost\n\treturn Min + fsum\ndef optimalSearchTree(keys, freq, n):\n\treturn optCost(freq, 0, n - 1)\ndef Sum(freq, i, j):\n\ts = 0\n\tfor k in range(i, j + 1):\n\t\ts += freq[k]\n\treturn s\nif __name__ == '__main__':",
+        "detail": "obst",
+        "documentation": {}
+    },
+    {
+        "label": "\ts",
+        "kind": 5,
+        "importPath": "obst",
+        "description": "obst",
+        "peekOfCode": "\ts = 0\n\tfor k in range(i, j + 1):\n\t\ts += freq[k]\n\treturn s\nif __name__ == '__main__':\n\tkeys = [10, 12, 20]\n\tfreq = [34, 8, 50]\n\tn = len(keys)\n\tprint(\"Cost of Optimal BST is\",\n\t\toptimalSearchTree(keys, freq, n))",
+        "detail": "obst",
+        "documentation": {}
+    },
+    {
+        "label": "\tkeys",
+        "kind": 5,
+        "importPath": "obst",
+        "description": "obst",
+        "peekOfCode": "\tkeys = [10, 12, 20]\n\tfreq = [34, 8, 50]\n\tn = len(keys)\n\tprint(\"Cost of Optimal BST is\",\n\t\toptimalSearchTree(keys, freq, n))",
+        "detail": "obst",
+        "documentation": {}
+    },
+    {
+        "label": "\tfreq",
+        "kind": 5,
+        "importPath": "obst",
+        "description": "obst",
+        "peekOfCode": "\tfreq = [34, 8, 50]\n\tn = len(keys)\n\tprint(\"Cost of Optimal BST is\",\n\t\toptimalSearchTree(keys, freq, n))",
+        "detail": "obst",
+        "documentation": {}
+    },
+    {
+        "label": "\tn",
+        "kind": 5,
+        "importPath": "obst",
+        "description": "obst",
+        "peekOfCode": "\tn = len(keys)\n\tprint(\"Cost of Optimal BST is\",\n\t\toptimalSearchTree(keys, freq, n))",
+        "detail": "obst",
+        "documentation": {}
+    },
+    {
+        "label": "INF",
+        "kind": 5,
+        "importPath": "prims",
+        "description": "prims",
+        "peekOfCode": "INF = 9999999\nV = 5\nG = [[0, 26, 75, 0, 0],\n     [9, 0, 95, 19, 42],\n     [75, 95, 0, 51, 66],\n     [0, 19, 51, 0, 31],\n     [0, 42, 66, 31, 0]]\nselected = [0, 0, 0, 0, 0]\nno_edge = 0\nselected[0] = True",
+        "detail": "prims",
+        "documentation": {}
+    },
+    {
+        "label": "V",
+        "kind": 5,
+        "importPath": "prims",
+        "description": "prims",
+        "peekOfCode": "V = 5\nG = [[0, 26, 75, 0, 0],\n     [9, 0, 95, 19, 42],\n     [75, 95, 0, 51, 66],\n     [0, 19, 51, 0, 31],\n     [0, 42, 66, 31, 0]]\nselected = [0, 0, 0, 0, 0]\nno_edge = 0\nselected[0] = True\nprint(\"Edge : Weight\\n\")",
+        "detail": "prims",
+        "documentation": {}
+    },
+    {
+        "label": "G",
+        "kind": 5,
+        "importPath": "prims",
+        "description": "prims",
+        "peekOfCode": "G = [[0, 26, 75, 0, 0],\n     [9, 0, 95, 19, 42],\n     [75, 95, 0, 51, 66],\n     [0, 19, 51, 0, 31],\n     [0, 42, 66, 31, 0]]\nselected = [0, 0, 0, 0, 0]\nno_edge = 0\nselected[0] = True\nprint(\"Edge : Weight\\n\")\nwhile (no_edge < V - 1):",
+        "detail": "prims",
+        "documentation": {}
+    },
+    {
+        "label": "selected",
+        "kind": 5,
+        "importPath": "prims",
+        "description": "prims",
+        "peekOfCode": "selected = [0, 0, 0, 0, 0]\nno_edge = 0\nselected[0] = True\nprint(\"Edge : Weight\\n\")\nwhile (no_edge < V - 1):\n    minimum = INF\n    x = 0\n    y = 0\n    for i in range(V):\n        if selected[i]:",
+        "detail": "prims",
+        "documentation": {}
+    },
+    {
+        "label": "no_edge",
+        "kind": 5,
+        "importPath": "prims",
+        "description": "prims",
+        "peekOfCode": "no_edge = 0\nselected[0] = True\nprint(\"Edge : Weight\\n\")\nwhile (no_edge < V - 1):\n    minimum = INF\n    x = 0\n    y = 0\n    for i in range(V):\n        if selected[i]:\n            for j in range(V):",
+        "detail": "prims",
+        "documentation": {}
+    },
+    {
+        "label": "selected[0]",
+        "kind": 5,
+        "importPath": "prims",
+        "description": "prims",
+        "peekOfCode": "selected[0] = True\nprint(\"Edge : Weight\\n\")\nwhile (no_edge < V - 1):\n    minimum = INF\n    x = 0\n    y = 0\n    for i in range(V):\n        if selected[i]:\n            for j in range(V):\n                if ((not selected[j]) and G[i][j]):  ",
+        "detail": "prims",
+        "documentation": {}
+    },
+    {
+        "label": "quicksort",
+        "kind": 2,
+        "importPath": "quicksort1",
+        "description": "quicksort1",
+        "peekOfCode": "def quicksort(alist, start, end):   \n    if end - start > 1:\n        p = partition(alist, start, end)\n        quicksort(alist, start, p)\n        quicksort(alist, p + 1, end) \ndef partition(alist, start, end):\n    pivot = alist[start]\n    i = start + 1\n    j = end - 1 \n    while True:",
+        "detail": "quicksort1",
+        "documentation": {}
+    },
+    {
+        "label": "partition",
+        "kind": 2,
+        "importPath": "quicksort1",
+        "description": "quicksort1",
+        "peekOfCode": "def partition(alist, start, end):\n    pivot = alist[start]\n    i = start + 1\n    j = end - 1 \n    while True:\n        while (i <= j and alist[i] <= pivot):\n            i = i + 1\n        while (i <= j and alist[j] >= pivot):\n            j = j - 1\n        if i <= j:",
+        "detail": "quicksort1",
+        "documentation": {}
+    },
+    {
+        "label": "alist",
+        "kind": 5,
+        "importPath": "quicksort1",
+        "description": "quicksort1",
+        "peekOfCode": "alist = input('Enter the numbers: ').split()\nalist = [int(x) for x in alist]\nquicksort(alist, 0, len(alist))\nprint('Sorted list: ', end='')\nprint(alist)",
+        "detail": "quicksort1",
+        "documentation": {}
+    },
+    {
+        "label": "alist",
+        "kind": 5,
+        "importPath": "quicksort1",
+        "description": "quicksort1",
+        "peekOfCode": "alist = [int(x) for x in alist]\nquicksort(alist, 0, len(alist))\nprint('Sorted list: ', end='')\nprint(alist)",
+        "detail": "quicksort1",
+        "documentation": {}
+    },
+    {
+        "label": "search",
+        "kind": 2,
+        "importPath": "Rabinkarp (2)",
+        "description": "Rabinkarp (2)",
+        "peekOfCode": "def search(pat, txt, q):\n    M = len(pat)\n    N = len(txt)\n    i = 0\n    j = 0\n    p = 0  \n    t = 0    \n    h = 1\n    for i in range(M-1):\n        h = (h*d)%q",
+        "detail": "Rabinkarp (2)",
+        "documentation": {}
+    },
+    {
+        "label": "d",
+        "kind": 5,
+        "importPath": "Rabinkarp (2)",
+        "description": "Rabinkarp (2)",
+        "peekOfCode": "d = 256\ndef search(pat, txt, q):\n    M = len(pat)\n    N = len(txt)\n    i = 0\n    j = 0\n    p = 0  \n    t = 0    \n    h = 1\n    for i in range(M-1):",
+        "detail": "Rabinkarp (2)",
+        "documentation": {}
+    },
+    {
+        "label": "txt",
+        "kind": 5,
+        "importPath": "Rabinkarp (2)",
+        "description": "Rabinkarp (2)",
+        "peekOfCode": "txt = \"GEEKS FOR GEEKS\"\npat = \"GEEK\"\nq = 101\nsearch(pat,txt,q)",
+        "detail": "Rabinkarp (2)",
+        "documentation": {}
+    },
+    {
+        "label": "pat",
+        "kind": 5,
+        "importPath": "Rabinkarp (2)",
+        "description": "Rabinkarp (2)",
+        "peekOfCode": "pat = \"GEEK\"\nq = 101\nsearch(pat,txt,q)",
+        "detail": "Rabinkarp (2)",
+        "documentation": {}
+    },
+    {
+        "label": "q",
+        "kind": 5,
+        "importPath": "Rabinkarp (2)",
+        "description": "Rabinkarp (2)",
+        "peekOfCode": "q = 101\nsearch(pat,txt,q)",
+        "detail": "Rabinkarp (2)",
+        "documentation": {}
+    },
+    {
+        "label": "search",
+        "kind": 2,
+        "importPath": "Rabinkarp",
+        "description": "Rabinkarp",
+        "peekOfCode": "def search(pat, txt, q):\n    M = len(pat)\n    N = len(txt)\n    i = 0\n    j = 0\n    p = 0  \n    t = 0    \n    h = 1\n    for i in range(M-1):\n        h = (h*d)%q",
+        "detail": "Rabinkarp",
+        "documentation": {}
+    },
+    {
+        "label": "d",
+        "kind": 5,
+        "importPath": "Rabinkarp",
+        "description": "Rabinkarp",
+        "peekOfCode": "d = 256\ndef search(pat, txt, q):\n    M = len(pat)\n    N = len(txt)\n    i = 0\n    j = 0\n    p = 0  \n    t = 0    \n    h = 1\n    for i in range(M-1):",
+        "detail": "Rabinkarp",
+        "documentation": {}
+    },
+    {
+        "label": "txt",
+        "kind": 5,
+        "importPath": "Rabinkarp",
+        "description": "Rabinkarp",
+        "peekOfCode": "txt = \"GEEKS FOR GEEKS\"\npat = \"GEEK\"\nq = 101\nsearch(pat,txt,q)",
+        "detail": "Rabinkarp",
+        "documentation": {}
+    },
+    {
+        "label": "pat",
+        "kind": 5,
+        "importPath": "Rabinkarp",
+        "description": "Rabinkarp",
+        "peekOfCode": "pat = \"GEEK\"\nq = 101\nsearch(pat,txt,q)",
+        "detail": "Rabinkarp",
+        "documentation": {}
+    },
+    {
+        "label": "q",
+        "kind": 5,
+        "importPath": "Rabinkarp",
+        "description": "Rabinkarp",
+        "peekOfCode": "q = 101\nsearch(pat,txt,q)",
+        "detail": "Rabinkarp",
+        "documentation": {}
+    },
+    {
+        "label": "Subse",
+        "kind": 6,
+        "importPath": "sumofsubsets",
+        "description": "sumofsubsets",
+        "peekOfCode": "class Subset :\n\tdef printSum(self, result, front, tail) :\n\t\tprint(\"[\", end = \"\")\n\t\ti = front\n\t\twhile (i < tail) :\n\t\t\tif (result[i] != sys.maxsize) :\n\t\t\t\tprint(\" \", result[i] ,\" \", end = \"\")\n\t\t\ti += 1\n\t\tprint(\"]\")\n\tdef subsetSum(self, arr, result, sum, size, current_sum, location) :",
+        "detail": "sumofsubsets",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "sumofsubsets",
+        "description": "sumofsubsets",
+        "peekOfCode": "def main() :\n\ttask = Subset()\n\tarr = [6, -3, 8, 2, 1, 4, 3]\n\tsize = len(arr)\n\tsum = 10\n\ttask.findSubset(arr, size, sum)\nif __name__ == \"__main__\": main()",
+        "detail": "sumofsubsets",
+        "documentation": {}
+    },
+    {
+        "label": "\t\ti",
+        "kind": 5,
+        "importPath": "sumofsubsets",
+        "description": "sumofsubsets",
+        "peekOfCode": "\t\ti = front\n\t\twhile (i < tail) :\n\t\t\tif (result[i] != sys.maxsize) :\n\t\t\t\tprint(\" \", result[i] ,\" \", end = \"\")\n\t\t\ti += 1\n\t\tprint(\"]\")\n\tdef subsetSum(self, arr, result, sum, size, current_sum, location) :\n\t\tif (location == -1) :\n\t\t\treturn\n\t\tself.subsetSum(arr, result, sum, size, current_sum, location - 1)",
+        "detail": "sumofsubsets",
+        "documentation": {}
+    },
+    {
+        "label": "\t\tresult[location]",
+        "kind": 5,
+        "importPath": "sumofsubsets",
+        "description": "sumofsubsets",
+        "peekOfCode": "\t\tresult[location] = arr[location]\n\t\tif (current_sum + arr[location] == sum) :\n\t\t\tself.printSum(result, location, size)\n\t\tself.subsetSum(arr, result, sum, size, current_sum + arr[location], location - 1)\n\t\tresult[location] = sys.maxsize\n\tdef findSubset(self, arr, size, sum) :\n\t\tif (size <= 0) :\n\t\t\treturn\n\t\tresult = [sys.maxsize] * (size)\n\t\tprint(\"Subser Sum of \", sum ,\" is \")",
+        "detail": "sumofsubsets",
+        "documentation": {}
+    },
+    {
+        "label": "\t\tresult[location]",
+        "kind": 5,
+        "importPath": "sumofsubsets",
+        "description": "sumofsubsets",
+        "peekOfCode": "\t\tresult[location] = sys.maxsize\n\tdef findSubset(self, arr, size, sum) :\n\t\tif (size <= 0) :\n\t\t\treturn\n\t\tresult = [sys.maxsize] * (size)\n\t\tprint(\"Subser Sum of \", sum ,\" is \")\n\t\tself.subsetSum(arr, result, sum, size, 0, size - 1)\ndef main() :\n\ttask = Subset()\n\tarr = [6, -3, 8, 2, 1, 4, 3]",
+        "detail": "sumofsubsets",
+        "documentation": {}
+    },
+    {
+        "label": "\t\tresult",
+        "kind": 5,
+        "importPath": "sumofsubsets",
+        "description": "sumofsubsets",
+        "peekOfCode": "\t\tresult = [sys.maxsize] * (size)\n\t\tprint(\"Subser Sum of \", sum ,\" is \")\n\t\tself.subsetSum(arr, result, sum, size, 0, size - 1)\ndef main() :\n\ttask = Subset()\n\tarr = [6, -3, 8, 2, 1, 4, 3]\n\tsize = len(arr)\n\tsum = 10\n\ttask.findSubset(arr, size, sum)\nif __name__ == \"__main__\": main()",
+        "detail": "sumofsubsets",
+        "documentation": {}
+    },
+    {
+        "label": "\ttask",
+        "kind": 5,
+        "importPath": "sumofsubsets",
+        "description": "sumofsubsets",
+        "peekOfCode": "\ttask = Subset()\n\tarr = [6, -3, 8, 2, 1, 4, 3]\n\tsize = len(arr)\n\tsum = 10\n\ttask.findSubset(arr, size, sum)\nif __name__ == \"__main__\": main()",
+        "detail": "sumofsubsets",
+        "documentation": {}
+    },
+    {
+        "label": "\tarr",
+        "kind": 5,
+        "importPath": "sumofsubsets",
+        "description": "sumofsubsets",
+        "peekOfCode": "\tarr = [6, -3, 8, 2, 1, 4, 3]\n\tsize = len(arr)\n\tsum = 10\n\ttask.findSubset(arr, size, sum)\nif __name__ == \"__main__\": main()",
+        "detail": "sumofsubsets",
+        "documentation": {}
+    },
+    {
+        "label": "\tsize",
+        "kind": 5,
+        "importPath": "sumofsubsets",
+        "description": "sumofsubsets",
+        "peekOfCode": "\tsize = len(arr)\n\tsum = 10\n\ttask.findSubset(arr, size, sum)\nif __name__ == \"__main__\": main()",
+        "detail": "sumofsubsets",
+        "documentation": {}
+    },
+    {
+        "label": "\tsum",
+        "kind": 5,
+        "importPath": "sumofsubsets",
+        "description": "sumofsubsets",
+        "peekOfCode": "\tsum = 10\n\ttask.findSubset(arr, size, sum)\nif __name__ == \"__main__\": main()",
+        "detail": "sumofsubsets",
+        "documentation": {}
+    }
+]
